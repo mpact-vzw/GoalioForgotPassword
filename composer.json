@@ -17,7 +17,8 @@
     ],
     "require": {
         "goalio/goalio-mailservice": "1.*",
-        "zf-commons/zfc-user": "1.*"
+        "zf-commons/zfc-user": "1.*",
+        "laminas/laminas-dependency-plugin": "^2.1"
     },
     "autoload": {
         "psr-0": {

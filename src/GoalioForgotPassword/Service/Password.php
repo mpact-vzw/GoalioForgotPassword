@@ -2,21 +2,21 @@
 
 namespace GoalioForgotPassword\Service;
 
-use Zend\Mail\Transport\TransportInterface;
+use Laminas\Mail\Transport\TransportInterface;
 
 use ZfcUser\Options\PasswordOptionsInterface;
 
 use GoalioForgotPassword\Options\ForgotOptionsInterface;
 
-use Zend\ServiceManager\ServiceManager;
+use Laminas\ServiceManager\ServiceManager;
 
-use Zend\ServiceManager\ServiceManagerAwareInterface;
+use Laminas\ServiceManager\ServiceManagerAwareInterface;
 
 use ZfcUser\Mapper\UserInterface as UserMapperInterface;
 use GoalioForgotPassword\Mapper\Password as PasswordMapper;
 
-use Zend\Crypt\Password\Bcrypt;
-use Zend\Form\Form;
+use Laminas\Crypt\Password\Bcrypt;
+use Laminas\Form\Form;
 
 use ZfcBase\EventManager\EventProvider;
 

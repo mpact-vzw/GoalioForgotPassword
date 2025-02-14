@@ -6,7 +6,7 @@ Version 1.0.0 Created by the goalio UG (haftungsbeschränkt)
 Introduction
 ------------
 
-A Zend Framework 2 (ZF2) Module offering forgot password via e-mail functionality to ZfcUser
+A Laminas Module offering forgot password via e-mail functionality to LmcUser
 
 Information
 -----------
@@ -17,9 +17,8 @@ can be a little slow because we are a small company with only two developers. I 
 Requirements
 ------------
 
-* [Zend Framework 2](https://github.com/zendframework/zf2) (latest master).
-* [ZfcBase](https://github.com/ZF-Commons/ZfcBase) (latest master).
-* [ZfcUser](https://github.com/ZF-Commons/ZfcUser) (latest master).
+* [Laminas](https://github.com/laminas/).
+* [LmcUser](https://github.com/LM-Commons/LmcUser).
 * [GoalioMailService](https://github.com/goalio/GoalioMailService) (latest master).
 
 Features / Goals
@@ -58,8 +57,6 @@ Installation
     return array(
         'modules' => array(
             // ...
-            'ZfcBase',
-            'ZfcUser',
             'GoalioMailService',
             'GoalioForgotPassword'
         ),
@@ -71,9 +68,9 @@ Installation
 
 3. Make sure that the MailService is configured correctly.
 
-### Post-Install: Zend\Db
+### Post-Install: Laminas\Db
 
-1. If you do not already have a valid Zend\Db\Adapter\Adapter in your service
+1. If you do not already have a valid Laminas\Db\Adapter\Adapter in your service
    manager configuration, put the following in `./config/autoload/database.local.php`:
 
         <?php
@@ -88,8 +85,8 @@ Installation
         return array(
             'service_manager' => array(
                 'factories' => array(
-                    'Zend\Db\Adapter\Adapter' => function ($sm) use ($dbParams) {
-                        return new Zend\Db\Adapter\Adapter(array(
+                    'Laminas\Db\Adapter\Adapter' => function ($sm) use ($dbParams) {
+                        return new Laminas\Db\Adapter\Adapter(array(
                             'driver'    => 'pdo',
                             'dsn'       => 'mysql:dbname='.$dbParams['database'].';host='.$dbParams['hostname'],
                             'database'  => $dbParams['database'],
@@ -126,15 +123,15 @@ The following options are available:
 - **reset_expire** - Integer value in seconds when the login cookie should expire.
   Default is `86400` (24 hours).
 - **email_transport** - String value which transport class to use.
-  Default is `Zend\Mail\Transport\Sendmail`.
+  Default is `Laminas\Mail\Transport\Sendmail`.
 - **reset_email_subject_line** - String value which transport class to use.
   Default is `You requested to reset your password`.
 - **email_from_address** - Array
   Default is
-	`array(
-    	'email' => 'your_email_address@here.com',
-    	'name' => 'Your name',
-	)`.
+    `array(
+        'email' => 'your_email_address@here.com',
+        'name' => 'Your name',
+    )`.
 
 Acknowledgements
 ----------------
