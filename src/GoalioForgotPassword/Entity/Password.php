@@ -2,9 +2,10 @@
 
 namespace GoalioForgotPassword\Entity;
 
-class Password
+use LmcUser\Entity\User;
+
+class Password extends User
 {
-    protected $user_id;
     protected $requestKey;
     protected $requestTime;
 
@@ -30,12 +31,12 @@ class Password
 
     public function setUserId($user_id)
     {
-        $this->user_id = $user_id;
+        return $this->setId($user_id);
     }
 
     public function getUserId()
     {
-        return $this->user_id;
+        return $this->getId();
     }
 
     public function setRequestTime($time)

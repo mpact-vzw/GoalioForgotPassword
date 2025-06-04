@@ -2,7 +2,7 @@
 
 namespace GoalioForgotPassword\Form;
 
-use ZfcBase\InputFilter\ProvidesEventsInputFilter as InputFilter;
+use LmcUser\InputFilter\ProvidesEventsInputFilter as InputFilter;
 use GoalioForgotPassword\Options\ForgotOptionsInterface;
 
 class ResetFilter extends InputFilter
@@ -47,6 +47,6 @@ class ResetFilter extends InputFilter
             ),
         ));
 
-		$this->getEventManager()->trigger('init', $this);
+        $this->getEventManager()->trigger('init', $this);
     }
 }

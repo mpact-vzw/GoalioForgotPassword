@@ -22,7 +22,7 @@ class Module {
     }
 
     public function getModuleDependencies() {
-        return array('ZfcUser', 'ZfcBase');
+        return array('LmcUser');
     }
 
     public function getServiceConfig() {

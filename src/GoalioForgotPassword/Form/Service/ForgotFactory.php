@@ -3,20 +3,20 @@ namespace GoalioForgotPassword\Form\Service;
 
 use GoalioForgotPassword\Form\Forgot;
 use GoalioForgotPassword\Form\ForgotFilter;
-use Laminas\ServiceManager\ServiceLocatorInterface;
-use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
+use Psr\Container\ContainerInterface;
 
 class ForgotFactory implements FactoryInterface {
-
-    public function createService(ServiceLocatorInterface $serviceLocator) {
-        $options = $serviceLocator->get('goalioforgotpassword_module_options');
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
+    {
+        $options = $container->get('goalioforgotpassword_module_options');
         $form = new Forgot(null, $options);
         $validator = new \ZfcUser\Validator\RecordExists(array(
-            'mapper' => $serviceLocator->get('zfcuser_user_mapper'),
+            'mapper' => $container->get('zfcuser_user_mapper'),
             'key'    => 'email'
         ));
 
-        $translator = $serviceLocator->get('Translator');
+        $translator = $container->get('Translator');
 
         $validator->setMessage($translator->translate('The email address you entered was not found.'));
         $form->setInputFilter(new ForgotFilter($validator,$options));

@@ -3,15 +3,15 @@ namespace GoalioForgotPassword\Mapper\Service;
 
 use GoalioForgotPassword\Mapper\Password;
 use GoalioForgotPassword\Mapper\PasswordHydrator;
-use Laminas\ServiceManager\ServiceLocatorInterface;
-use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
+use Psr\Container\ContainerInterface;
 
 class PasswordFactory implements FactoryInterface {
-
-    public function createService(ServiceLocatorInterface $serviceLocator) {
-        $options = $serviceLocator->get('goalioforgotpassword_module_options');
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
+    {
+        $options = $container->get('goalioforgotpassword_module_options');
         $mapper = new Password();
-        $mapper->setDbAdapter($serviceLocator->get('lmcuser_laminas_db_adapter'));
+        $mapper->setDbAdapter($container->get('lmcuser_laminas_db_adapter'));
         $entityClass = $options->getPasswordEntityClass();
         $mapper->setEntityPrototype(new $entityClass);
         $mapper->setHydrator(new PasswordHydrator());

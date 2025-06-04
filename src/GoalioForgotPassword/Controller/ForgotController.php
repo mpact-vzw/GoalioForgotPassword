@@ -52,17 +52,17 @@ class ForgotController extends AbstractActionController
     /**
      * @var PasswordOptionsInterface
      */
-    protected $zfcUserOptions;
+    protected $lmcUserOptions;
 
     /**
      * User page
      */
     public function indexAction()
     {
-        if ($this->zfcUserAuthentication()->hasIdentity()) {
-            return $this->redirect()->toRoute('zfcuser');
+        if ($this->lmcUserAuthentication()->hasIdentity()) {
+            return $this->redirect()->toRoute('lmcuser');
         } else {
-            return $this->redirect()->toRoute('zfcuser/forgotpassword');
+            return $this->redirect()->toRoute('lmcuser/forgotpassword');
         }
     }
 
@@ -109,8 +109,8 @@ class ForgotController extends AbstractActionController
 
     public function resetAction()
     {
-        if ($this->zfcUserAuthentication()->hasIdentity()) {
-            return $this->redirect()->toRoute('zfcuser');
+        if ($this->lmcUserAuthentication()->hasIdentity()) {
+            return $this->redirect()->toRoute('lmcuser');
         }
 
         $service = $this->getPasswordService();
@@ -126,7 +126,7 @@ class ForgotController extends AbstractActionController
 
         //no request for a new password found
         if($passwordRequest === null || $passwordRequest == false) {
-            return $this->redirect()->toRoute('zfcuser/forgotpassword');
+            return $this->redirect()->toRoute('lmcuser/forgotpassword');
         }
 
         $userService = $this->getUserService();
@@ -161,7 +161,7 @@ class ForgotController extends AbstractActionController
     public function getUserService()
     {
         if (!$this->userService) {
-            $this->userService = $this->getServiceLocator()->get('zfcuser_user_service');
+            $this->userService = $this->getServiceLocator()->get('lmcuser_user_service');
         }
         return $this->userService;
     }
@@ -237,11 +237,11 @@ class ForgotController extends AbstractActionController
         return $this->options;
     }
 
-    public function getZfcUserOptions()
+    public function getLmcUserOptions()
     {
-        if (!$this->zfcUserOptions instanceof PasswordOptionsInterface) {
-            $this->zfcUserOptions = $this->getServiceLocator()->get('zfcuser_module_options');
+        if (!$this->lmcUserOptions instanceof PasswordOptionsInterface) {
+            $this->lmcUserOptions = $this->getServiceLocator()->get('lmcuser_module_options');
         }
-        return $this->zfcUserOptions;
+        return $this->lmcUserOptions;
     }
 }

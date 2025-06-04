@@ -4,23 +4,21 @@ namespace GoalioForgotPassword\Service;
 
 use Laminas\Mail\Transport\TransportInterface;
 
-use ZfcUser\Options\PasswordOptionsInterface;
+use LmcUser\Options\PasswordOptionsInterface;
 
 use GoalioForgotPassword\Options\ForgotOptionsInterface;
 
 use Laminas\ServiceManager\ServiceManager;
 
-use Laminas\ServiceManager\ServiceManagerAwareInterface;
-
-use ZfcUser\Mapper\UserInterface as UserMapperInterface;
+use LmcUser\Mapper\UserInterface as UserMapperInterface;
 use GoalioForgotPassword\Mapper\Password as PasswordMapper;
 
 use Laminas\Crypt\Password\Bcrypt;
 use Laminas\Form\Form;
 
-use ZfcBase\EventManager\EventProvider;
+use LmcUser\EventManager\EventProvider;
 
-class Password extends EventProvider implements ServiceManagerAwareInterface
+class Password extends EventProvider
 {
     /**
      * @var ModelMapper
@@ -29,7 +27,7 @@ class Password extends EventProvider implements ServiceManagerAwareInterface
     protected $userMapper;
     protected $serviceLocator;
     protected $options;
-    protected $zfcUserOptions;
+    protected $lmcUserOptions;
     protected $emailRenderer;
     protected $emailTransport;
 

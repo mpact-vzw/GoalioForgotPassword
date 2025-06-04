@@ -1,7 +1,7 @@
 <?php
 namespace GoalioForgotPassword\Mapper;
 
-use ZfcBase\Mapper\AbstractDbMapper;
+use LmcUser\Mapper\AbstractDbMapper;
 use GoalioForgotPassword\Entity\Password as Model;
 use Laminas\Db\Sql\Sql;
 
@@ -60,12 +60,12 @@ class Password extends AbstractDbMapper
         return true;
     }
 
-	public function findByUserIdRequestKey($userId, $token)
-	{
-		$select = $this->getSelect()
+    public function findByUserIdRequestKey($userId, $token)
+    {
+        $select = $this->getSelect()
                        ->where(array($this->userField => $userId, $this->keyField => $token));
         return $this->select($select)->current();
-	}
+    }
 
     protected function fromRow($row)
     {

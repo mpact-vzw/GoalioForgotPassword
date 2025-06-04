@@ -2,10 +2,11 @@
 
 namespace GoalioForgotPassword\Mapper;
 
-use Laminas\Stdlib\Hydrator\ClassMethods;
+use Laminas\Hydrator\ClassMethodsHydrator;
+use LmcUser\Entity\UserInterface as UserEntityInterface;
 use GoalioForgotPassword\Entity\Password as Entity;
 
-class PasswordHydrator extends ClassMethods
+class PasswordHydrator extends ClassMethodsHydrator
 {
     /**
      * Extract values from an object
@@ -14,7 +15,7 @@ class PasswordHydrator extends ClassMethods
      * @return array
      * @throws Exception\InvalidArgumentException
      */
-    public function extract($object)
+    public function extract($object) : array
     {
         if (!$object instanceof Entity) {
             throw new \InvalidArgumentException('$object must be an instance of EmailVerification entity');

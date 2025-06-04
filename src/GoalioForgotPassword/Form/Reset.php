@@ -4,7 +4,7 @@ namespace GoalioForgotPassword\Form;
 
 use Laminas\Form\Form;
 use Laminas\Form\Element;
-use ZfcBase\Form\ProvidesEventsForm;
+use LmcUser\Form\ProvidesEventsForm;
 use GoalioForgotPassword\Options\ForgotOptionsInterface;
 
 class Reset extends ProvidesEventsForm
@@ -14,7 +14,7 @@ class Reset extends ProvidesEventsForm
      */
     protected $forgotOptions;
 
-    public function __construct($name = null, ForgotOptionsInterface $forgotOptions)
+    public function __construct($name = null, ForgotOptionsInterface $forgotOptions = null)
     {
         $this->setForgotOptions($forgotOptions);
         parent::__construct($name);
