@@ -3,7 +3,7 @@
 <?php
 $form = $this->forgotForm;
 $form->prepare();
-$form->setAttribute('action', $this->url('zfcuser/forgotpassword'));
+$form->setAttribute('action', $this->url('lmcuser/forgotpassword'));
 $form->setAttribute('method', 'post');
 ?>
 
@@ -20,4 +20,4 @@ $form->setAttribute('method', 'post');
 
 <?php echo $this->form()->closeTag() ?>
 
-<a href="<?php echo $this->url('zfcuser/login') ?>"><?php echo $this->translate('Back to login.'); ?></a>
+<a href="<?php echo $this->url('lmcuser/login') ?>"><?php echo $this->translate('Back to login.'); ?></a>

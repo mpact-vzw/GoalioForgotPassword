@@ -57,15 +57,15 @@ msgstr "Se ha enviado un recordatorio a su dirección de correo %s."
 msgid "Back to login?"
 msgstr "¿Retornar al ingreso?"
 
-#: view/zfc-user/user/login.phtml:1
+#: view/lmc-user/user/login.phtml:1
 msgid "Sign In"
 msgstr ""
 
-#: view/zfc-user/user/login.phtml:33
+#: view/lmc-user/user/login.phtml:33
 msgid "Not registered?"
 msgstr ""
 
-#: view/zfc-user/user/login.phtml:33
+#: view/lmc-user/user/login.phtml:33
 msgid "Sign up!"
 msgstr ""
 

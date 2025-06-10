@@ -5,7 +5,7 @@ return array(
             'goalioforgotpassword' => __DIR__ . '/../view',
         ),
         'template_map' => array(
-            'zfc-user/user/login' => __DIR__ . '/../view/zfc-user/user/login.phtml',
+            'lmc-user/user/login' => __DIR__ . '/../view/lmc-user/user/login.phtml',
         ),
     ),
     'controllers' => array(
@@ -25,7 +25,7 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'zfcuser' => array(
+            'lmcuser' => array(
                 'child_routes' => array(
                     'forgotpassword' => array(
                         'type' => 'Literal',

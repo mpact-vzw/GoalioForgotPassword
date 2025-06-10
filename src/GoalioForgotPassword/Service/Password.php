@@ -91,7 +91,7 @@ class Password extends EventProvider
         $newPass = $data['newCredential'];
 
         $bcrypt = new Bcrypt;
-        $bcrypt->setCost($this->getZfcUserOptions()->getPasswordCost());
+        $bcrypt->setCost($this->getLmcUserOptions()->getPasswordCost());
 
         $pass = $bcrypt->create($newPass);
         $user->setPassword($pass);
@@ -123,7 +123,7 @@ class Password extends EventProvider
     public function getUserMapper()
     {
         if (null === $this->userMapper) {
-            $this->userMapper = $this->getServiceManager()->get('zfcuser_user_mapper');
+            $this->userMapper = $this->getServiceManager()->get('lmcuser_user_mapper');
         }
         return $this->userMapper;
     }
@@ -190,17 +190,17 @@ class Password extends EventProvider
         return $this;
     }
 
-    public function getZfcUserOptions()
+    public function getLmcUserOptions()
     {
-        if (!$this->zfcUserOptions instanceof PasswordOptionsInterface) {
-            $this->setZfcUserOptions($this->getServiceManager()->get('zfcuser_module_options'));
+        if (!$this->lmcUserOptions instanceof PasswordOptionsInterface) {
+            $this->setLmcUserOptions($this->getServiceManager()->get('lmcuser_module_options'));
         }
-        return $this->zfcUserOptions;
+        return $this->lmcUserOptions;
     }
 
-    public function setZfcUserOptions(PasswordOptionsInterface $zfcUserOptions)
+    public function setLmcUserOptions(PasswordOptionsInterface $lmcUserOptions)
     {
-        $this->zfcUserOptions = $zfcUserOptions;
+        $this->lmcUserOptions = $lmcUserOptions;
         return $this;
     }
 }

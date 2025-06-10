@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: ZfcUser\n"
+"Project-Id-Version: LmcUser\n"
 "Report-Msgid-Bugs-To: zf-devteam@zend.com\n"
 "POT-Creation-Date: 2014-04-12 16:56+0100\n"
 "PO-Revision-Date: 2014-04-12 16:56+0100\n"
@@ -63,7 +63,7 @@ msgstr "Geben Sie bitte den folgenden Text ein"
 msgid "Submit"
 msgstr "Senden"
 
-#: language/msgIds.php:18 view/zfc-user/user/login.phtml:1
+#: language/msgIds.php:18 view/lmc-user/user/login.phtml:1
 msgid "Sign In"
 msgstr "Anmelden"
 
@@ -131,11 +131,11 @@ msgstr ""
 msgid "Back to login?"
 msgstr ""
 
-#: view/zfc-user/user/login.phtml:33
+#: view/lmc-user/user/login.phtml:33
 msgid "Not registered?"
 msgstr "Noch kein Zugang?"
 
-#: view/zfc-user/user/login.phtml:33
+#: view/lmc-user/user/login.phtml:33
 msgid "Sign up!"
 msgstr "Jetzt registrieren!"
 

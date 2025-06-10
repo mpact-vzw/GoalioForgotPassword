@@ -11,8 +11,8 @@ class ForgotFactory implements FactoryInterface {
     {
         $options = $container->get('goalioforgotpassword_module_options');
         $form = new Forgot(null, $options);
-        $validator = new \ZfcUser\Validator\RecordExists(array(
-            'mapper' => $container->get('zfcuser_user_mapper'),
+        $validator = new \LmcUser\Validator\RecordExists(array(
+            'mapper' => $container->get('lmcuser_user_mapper'),
             'key'    => 'email'
         ));
 
